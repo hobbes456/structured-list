@@ -1,1 +1,23 @@
 @import "./css-reset";
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+input, button {
+    outline: none;
+    border: none;
+    background: inherit;
+
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
