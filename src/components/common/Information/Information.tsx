@@ -7,11 +7,15 @@ import s from "./Information.module.scss";
 
 const Information = () => {
     return (
-        <div>
+        <div className={s.information}>
             {informationContent.map((item) => (
-                <p key={item.id}>
+                <p className={s.information__text} key={item.id}>
                     {item.text}{" "}
-                    {item.href && <Link href={item.href}>{item.linkText}</Link>}
+                    {item.href && (
+                        <Link className={s.information__link} href={item.href}>
+                            {item.linkText}
+                        </Link>
+                    )}
                 </p>
             ))}
         </div>

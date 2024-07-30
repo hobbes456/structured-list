@@ -20,6 +20,11 @@ export default function Home() {
                     name="viewport"
                     content="width=device-width, initial-scale=1"
                 />
+                <meta
+                    http-equiv="Permissions-Policy"
+                    content="interest-cohort=()"
+                />
+                <link rel="icon" href="/favicon.png" />
             </Head>
             <HomePage />
         </>

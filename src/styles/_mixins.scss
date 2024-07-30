@@ -1,0 +1,51 @@
+@mixin v550 {
+    @media screen and (max-width: $viewport550) {
+        @content;
+    }
+}
+
+@mixin roboto-medium {
+    font-style: normal;
+    font-family: "Roboto-Medium", sans-serif;
+    word-wrap: break-word;
+}
+
+@mixin h1-font {
+    @include roboto-medium;
+    font-size: 96px;
+    font-weight: 700;
+    word-wrap: break-word;
+}
+
+@mixin p-big-font {
+    @include roboto-medium;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1.22;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+@mixin p-normal-font {
+    @include roboto-medium;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.42;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+@mixin p-small-font {
+    @include roboto-medium;
+    font-size: 10px;
+    font-weight: 200;
+    line-height: 1.42;
+    word-wrap: break-word;
+}
+
+@mixin flex_column_center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

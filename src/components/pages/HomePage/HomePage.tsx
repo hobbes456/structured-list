@@ -18,8 +18,8 @@ const HomePage = () => {
             {isLoading ? (
                 <AppLoader />
             ) : (
-                <div>
-                    <button>Create Product</button>
+                <div className={s.homePage}>
+                    <button className={s.homePage__button}>Create Product</button>
                     <Information />
                 </div>
             )}
