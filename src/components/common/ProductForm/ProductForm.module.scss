@@ -1,0 +1,40 @@
+.productForm {
+    display: grid;
+    gap: 30px;
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+
+    background-color: $main_1;
+    border-radius: 30px;
+
+    filter: drop-shadow(0 0 2px $main_2);
+
+    &__buttons {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    &__button {
+        width: 100px;
+        padding: 10px;
+
+        text-align: center;
+
+        border: 2px solid $grey_3;
+        border-radius: 10px;
+
+        &[type="submit"] {
+            @include hover-c-bg($main_2, $form_button_color_1, 300ms);
+        }
+
+        &[type="reset"] {
+            @include hover-c-bg($main_2, $form_button_color_2, 300ms);
+        }
+
+        &:active {
+            opacity: 0.5;
+        }
+    }
+}

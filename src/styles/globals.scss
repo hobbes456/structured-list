@@ -6,7 +6,7 @@ html {
 }
 
 body {
-    background-color: $main;
+    background-color: $main_1;
 }
 
 a {
@@ -14,7 +14,9 @@ a {
     text-decoration: none;
 }
 
-input, button {
+input,
+button,
+textarea {
     outline: none;
     border: none;
     background: inherit;

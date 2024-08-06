@@ -1,0 +1,24 @@
+.button {
+    display: block;
+    width: 200px;
+    height: 40px;
+
+    @include p-normal-font;
+    color: $grey_1;
+    letter-spacing: 2px;
+
+    border: 2px solid $grey_1;
+
+    transition: background-color 100ms ease-in-out, color 100ms ease-in-out,
+        border-color 100ms ease-in-out;
+
+    &:hover {
+        background-color: $white;
+    }
+
+    &:active {
+        color: $grey_2;
+        border-color: $grey_2;
+        background-color: $grey_4;
+    }
+}
