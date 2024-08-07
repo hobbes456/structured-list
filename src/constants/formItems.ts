@@ -3,7 +3,7 @@ import { IFormItem } from "@/interfaces/IFormItem";
 export const formItems: IFormItem[] = [
     {
         title: "Book title",
-        id: "bookTitle",
+        id: "title",
         placeholder: "Enter book title",
         required: true,
     },
@@ -15,13 +15,13 @@ export const formItems: IFormItem[] = [
     },
     {
         title: "Date of writing",
-        id: "dateOfWriting",
+        id: "date",
         placeholder: "Enter date of writing",
         required: true,
     },
     {
         title: "Description of the book",
-        id: "descriptionOfTheBook",
+        id: "description",
         placeholder: "Enter a description",
         required: true,
         isTextarea: true,
