@@ -1,4 +1,6 @@
 .productForm {
+    margin-bottom: 15px;
+
     display: grid;
     gap: 30px;
     width: 100%;
@@ -9,6 +11,10 @@
     border-radius: 30px;
 
     filter: drop-shadow(0 0 2px $main_2);
+
+    @include v550 {
+        max-width: 250px;
+    }
 
     &__buttons {
         display: flex;
