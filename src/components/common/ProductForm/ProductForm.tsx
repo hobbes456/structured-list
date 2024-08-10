@@ -2,9 +2,11 @@ import React from "react";
 import { useState } from "react";
 
 import FormItem from "@components/FormItem";
+
+import { IProduct } from "@/interfaces/IProduct";
+
 import { formItems } from "@/constants/formItems";
 import { formButtons } from "@/constants/formButtons";
-import { IProduct } from "@/interfaces/IProduct";
 import { templateProductFormDate } from "@/constants/templateProductFormDate";
 
 import s from "./ProductForm.module.scss";
