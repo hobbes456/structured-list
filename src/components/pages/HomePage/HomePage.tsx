@@ -31,7 +31,7 @@ const HomePage = () => {
                             title={"Create a new product"}
                             onClose={handleClick}
                         >
-                            <ProductForm />
+                            <ProductForm onClose={handleClick} />
                         </ModalWindow>
                     )}
                     <Information />

@@ -1,6 +1,10 @@
 import React from "react";
 import { useState } from "react";
 
+import { useAction } from "@/hooks/useAction";
+
+import { addProduct } from "@/models/product";
+
 import FormItem from "@components/FormItem";
 
 import { IProduct } from "@/interfaces/IProduct";
@@ -8,14 +12,19 @@ import { IProduct } from "@/interfaces/IProduct";
 import { formItems } from "@/constants/formItems";
 import { formButtons } from "@/constants/formButtons";
 import { templateProductFormDate } from "@/constants/templateProductFormDate";
-import { Product } from "@/constants/Product";
 
 import s from "./ProductForm.module.scss";
 
-const ProductForm = () => {
+type ProductFormProps = {
+    onClose: () => void;
+};
+
+const ProductForm: React.FC<ProductFormProps> = ({ onClose }) => {
     const [formDate, setFormDate] = useState<IProduct>(
         structuredClone(templateProductFormDate)
     );
+
+    const addNewProduct = useAction(addProduct);
 
     const handleChange = (
         event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -32,8 +41,9 @@ const ProductForm = () => {
     ) => {
         event.preventDefault();
 
-        console.log(new Product([], formDate));
-        setFormDate(structuredClone(templateProductFormDate));
+        addNewProduct(formDate);
+
+        onClose();
     };
 
     const handleReset = (event: React.MouseEvent<HTMLButtonElement>) => {
