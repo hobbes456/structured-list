@@ -8,6 +8,7 @@ import { IProduct } from "@/interfaces/IProduct";
 import { formItems } from "@/constants/formItems";
 import { formButtons } from "@/constants/formButtons";
 import { templateProductFormDate } from "@/constants/templateProductFormDate";
+import { Product } from "@/constants/Product";
 
 import s from "./ProductForm.module.scss";
 
@@ -30,6 +31,9 @@ const ProductForm = () => {
             | React.FormEvent<HTMLFormElement>
     ) => {
         event.preventDefault();
+
+        console.log(new Product([], formDate));
+        setFormDate(structuredClone(templateProductFormDate));
     };
 
     const handleReset = (event: React.MouseEvent<HTMLButtonElement>) => {

@@ -1,8 +1,16 @@
-import { IProduct } from "@/interfaces/IProduct";
+import { Product } from "@/constants/Product";
 
-export const templateProductFormDate: IProduct = {
-    title: "",
-    author: "",
-    date: "",
-    description: "",
-};
+const templateArray = [
+    {
+        id: 0,
+        title: "",
+        author: "",
+        date: "",
+        description: "",
+    },
+];
+
+export const templateProductFormDate = new Product(
+    templateArray,
+    templateArray[0]
+);
