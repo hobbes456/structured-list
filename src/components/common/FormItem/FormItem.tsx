@@ -1,42 +1,41 @@
 import React from "react";
+import { UseFormRegister, FieldErrors, FieldValues } from "react-hook-form";
+
 import { IFormItem } from "@/interfaces/IFormItem";
+import { IFormValues } from "@/interfaces/IFormValues";
 
 import s from "./FormItem.module.scss";
 
 type FormItemProps = {
     item: IFormItem;
-    value: string;
-    onChange: (
-        event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-    ) => void;
+    register: UseFormRegister<IFormValues>;
+    errors: FieldErrors<FieldValues>;
 };
 
-const FormItem: React.FC<FormItemProps> = ({ item, value, onChange }) => {
+const FormItem: React.FC<FormItemProps> = ({ item, register, errors }) => {
     return (
         <div className={s.formItem}>
             <label htmlFor={item.id}>{item.title}</label>
             {item.isTextarea ? (
                 <textarea
+                    {...register(item.id, item.validations)}
                     className={s.formItem__field}
-                    value={value}
                     name={item.id}
                     id={item.id}
                     placeholder={item.placeholder}
-                    onChange={onChange}
-                    required={item.required}
                 />
             ) : (
                 <input
+                    {...register(item.id, item.validations)}
                     className={s.formItem__field}
-                    type="text"
-                    value={value}
                     name={item.id}
                     id={item.id}
                     placeholder={item.placeholder}
-                    onChange={onChange}
-                    required={item.required}
                 />
             )}
+            <div className={s.formItem__warning}>
+                {errors?.[item.id] && `${errors?.[item.id]?.message}`}
+            </div>
         </div>
     );
 };

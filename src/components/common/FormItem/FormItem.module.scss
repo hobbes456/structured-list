@@ -24,4 +24,11 @@
             background-color: $grey_4;
         }
     }
+
+    &__warning {
+        @include p-small-font;
+
+        color: $red_1;
+        word-break: normal;
+    }
 }

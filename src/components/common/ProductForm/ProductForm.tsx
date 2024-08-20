@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
 
 import { useAction } from "@/hooks/useAction";
 
@@ -7,11 +7,10 @@ import { addProduct } from "@/models/product";
 
 import FormItem from "@components/FormItem";
 
-import { IProduct } from "@/interfaces/IProduct";
+import { IFormValues } from "@/interfaces/IFormValues";
 
 import { formItems } from "@/constants/formItems";
 import { formButtons } from "@/constants/formButtons";
-import { templateProductFormDate } from "@/constants/templateProductFormDate";
 
 import s from "./ProductForm.module.scss";
 
@@ -20,51 +19,39 @@ type ProductFormProps = {
 };
 
 const ProductForm: React.FC<ProductFormProps> = ({ onClose }) => {
-    const [formDate, setFormDate] = useState<IProduct>(
-        structuredClone(templateProductFormDate)
-    );
+    const {
+        register,
+        formState: { errors, isValid },
+        handleSubmit,
+        reset,
+    } = useForm<IFormValues>({ mode: "onBlur" });
 
-    const addNewProduct = useAction(addProduct);
+    // const addNewProduct = useAction(addProduct);
+    
+    const onSubmit: SubmitHandler<IFormValues> = (data: any) => {
+        console.log(data);
 
-    const handleChange = (
-        event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-    ) => {
-        const { id, value } = event.target;
+        // addNewProduct(data);
 
-        setFormDate((prev) => ({ ...prev, [id]: value }));
-    };
-
-    const handleSubmit = (
-        event:
-            | React.MouseEvent<HTMLButtonElement>
-            | React.FormEvent<HTMLFormElement>
-    ) => {
-        event.preventDefault();
-
-        addNewProduct(formDate);
+        reset();
 
         onClose();
     };
 
-    const handleReset = (event: React.MouseEvent<HTMLButtonElement>) => {
-        event.preventDefault();
-
-        setFormDate(structuredClone(templateProductFormDate));
-    };
 
     return (
         <form
             className={s.productForm}
             action="#"
             method="post"
-            onSubmit={handleSubmit}
+            onSubmit={handleSubmit(onSubmit)}
         >
             {formItems.map((item) => (
                 <FormItem
                     key={item.id}
                     item={item}
-                    value={formDate[item.id]}
-                    onChange={handleChange}
+                    register={register}
+                    errors={errors}
                 />
             ))}
             <div className={s.productForm__buttons}>
@@ -73,9 +60,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ onClose }) => {
                         key={item.type}
                         type={item.type}
                         className={s.productForm__button}
-                        onClick={
-                            item.type === "submit" ? handleSubmit : handleReset
-                        }
+                        disabled={item.type === "submit" && !isValid}
                     >
                         {item.type.toUpperCase()}
                     </button>

@@ -1,7 +1,9 @@
 export interface IFormItem {
     title: string;
-    id: string;
+    id: "article" | "title" | "author" | "year" | "description";
     placeholder: string;
-    required: boolean;
+    validations: {
+        [index: string]: { value: string | number | boolean; message: string };
+    };
     isTextarea?: boolean;
 }
