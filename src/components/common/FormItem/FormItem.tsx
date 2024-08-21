@@ -2,13 +2,13 @@ import React from "react";
 import { UseFormRegister, FieldErrors, FieldValues } from "react-hook-form";
 
 import { IFormItem } from "@/interfaces/IFormItem";
-import { IFormValues } from "@/interfaces/IFormValues";
+import { IProduct } from "@/interfaces/IProduct";
 
 import s from "./FormItem.module.scss";
 
 type FormItemProps = {
     item: IFormItem;
-    register: UseFormRegister<IFormValues>;
+    register: UseFormRegister<IProduct>;
     errors: FieldErrors<FieldValues>;
 };
 

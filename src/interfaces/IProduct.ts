@@ -1,7 +1,8 @@
 export interface IProduct {
     id: number;
+    article: string;
     title: string;
     author: string;
-    date: string;
+    year: string;
     description: string;
 }

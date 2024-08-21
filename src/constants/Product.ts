@@ -8,16 +8,18 @@ const nextProductId = (products: IProduct[]): number => {
 
 export class Product implements IProduct {
     public id: number;
+    public article: string;
     public title: string;
     public author: string;
-    public date: string;
+    public year: string;
     public description: string;
 
     constructor(state: IProduct[], product: IProduct) {
         this.id = nextProductId(state);
+        this.article = product.article;
         this.title = product.title;
         this.author = product.author;
-        this.date = product.date;
+        this.year = product.year;
         this.description = product.description;
     }
 }

@@ -7,7 +7,7 @@ import { addProduct } from "@/models/product";
 
 import FormItem from "@components/FormItem";
 
-import { IFormValues } from "@/interfaces/IFormValues";
+import { IProduct } from "@/interfaces/IProduct";
 
 import { formItems } from "@/constants/formItems";
 import { formButtons } from "@/constants/formButtons";
@@ -24,20 +24,17 @@ const ProductForm: React.FC<ProductFormProps> = ({ onClose }) => {
         formState: { errors, isValid },
         handleSubmit,
         reset,
-    } = useForm<IFormValues>({ mode: "onBlur" });
+    } = useForm<IProduct>({ mode: "onBlur" });
 
-    // const addNewProduct = useAction(addProduct);
-    
-    const onSubmit: SubmitHandler<IFormValues> = (data: any) => {
-        console.log(data);
+    const addNewProduct = useAction(addProduct);
 
-        // addNewProduct(data);
+    const onSubmit: SubmitHandler<IProduct> = (data: IProduct) => {
+        addNewProduct(data);
 
         reset();
 
         onClose();
     };
-
 
     return (
         <form
