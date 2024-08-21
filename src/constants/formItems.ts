@@ -9,15 +9,16 @@ const {
     VALID_AUTHOR_FORMAT,
     VALID_YEAR,
     IS_EMPTY,
+    NUMBERS_ONLY
 } = formErrorMessages;
 
 const isEmpty = (value: string): string | boolean =>
     value.trim() === "" ? IS_EMPTY : true;
 
 const isValidYear = (value: string): string | boolean =>
-    parseInt(value) <= new Date().getFullYear() || value.trim() === ""
-        ? true
-        : VALID_YEAR;
+    parseInt(value) > new Date().getFullYear() || value.trim() === ""
+        ? VALID_YEAR
+        : true;
 
 export const formItems: IFormItem[] = [
     {
@@ -28,6 +29,10 @@ export const formItems: IFormItem[] = [
             required: { value: true, message: REQUIRED_ERROR_MESSAGE },
             minLength: { value: 2, message: MINLENGTH_ERROR_MESSAGE },
             maxLength: { value: 10, message: MAXLENGTH_ERROR_MESSAGE },
+            pattern: {
+                value: /^\d+$/,
+                message: NUMBERS_ONLY,
+            },
             validate: (value: string) => isEmpty(value),
         },
     },
