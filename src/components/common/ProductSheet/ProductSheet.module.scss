@@ -1,0 +1,19 @@
+.productSheet {
+    margin-top: 40px;
+
+    width: 100%;
+    padding: 10px;
+
+    &__list {
+        @include flex_column_center;
+        width: 100%;
+
+        & li:not(:last-child) {
+            margin-bottom: 20px;
+
+            @include v550 {
+                margin-bottom: 10px;
+            }
+        }
+    }
+}

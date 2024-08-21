@@ -1,0 +1,69 @@
+.productCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 350px;
+
+    padding: 15px;
+
+    border: 2px solid $grey_1;
+
+    transition: background-color 200ms ease-in-out;
+    cursor: pointer;
+
+    @include v550 {
+        max-width: 280px;
+    }
+
+    &:hover {
+        background-color: $green_1;
+    }
+
+    &:active {
+        filter: opacity(0.7);
+    }
+
+    &__information {
+        margin-left: 10px;
+        width: 100%;
+
+        display: grid;
+        grid-template-areas:
+            "title title title"
+            "author author year";
+        gap: 15px;
+
+        word-break: break-all;
+    }
+
+    &__title {
+        grid-area: title;
+
+        @include p-big-font;
+
+        @include v550 {
+            @include p-normal-font;
+        }
+    }
+
+    &__author {
+        grid-area: author;
+
+        @include p-normal-font;
+
+        @include v550 {
+            @include p-small-font;
+        }
+    }
+
+    &__year {
+        grid-area: year;
+
+        @include p-normal-font;
+
+        @include v550 {
+            @include p-small-font;
+        }
+    }
+}
