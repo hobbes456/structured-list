@@ -58,3 +58,14 @@
         background-color: $bg-color;
     }
 }
+
+@mixin main-background {
+    background-color: $main_1;
+    border-radius: 30px;
+
+    filter: drop-shadow(0 0 2px $main_2);
+
+    @include v550 {
+        border-radius: 20px;
+    }
+}

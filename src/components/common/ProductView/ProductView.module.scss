@@ -1,0 +1,54 @@
+.productView {
+    display: grid;
+    grid-template-areas:
+        "image article"
+        "image title"
+        "image author"
+        "image year"
+        "description description";
+    gap: 10px;
+    width: 100%;
+    max-width: 500px;
+    padding: 30px;
+
+    @include p-normal-font;
+    word-break: normal;
+
+    @include main-background;
+
+    @include v550 {
+        max-width: 280px;
+        padding: 15px;
+
+        @include p-small-font;
+    }
+
+    &__image {
+        grid-area: image;
+        width: 30%;
+
+        justify-self: center;
+        align-self: center;
+    }
+
+    &__article {
+        grid-area: article;
+    }
+
+    &__title {
+        grid-area: title;
+    }
+
+    &__author {
+        grid-area: author;
+    }
+
+    &__year {
+        grid-area: year;
+    }
+
+    &__description {
+        grid-area: description;
+        text-align: justify;
+    }
+}

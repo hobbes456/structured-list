@@ -7,7 +7,7 @@ import { Product } from "@/constants/Product";
 export * as productsSelectors from "./selectors";
 
 interface InitialStateProductsProps {
-    entities: any[];
+    entities: IProduct[];
 }
 
 const initialState: InitialStateProductsProps = {

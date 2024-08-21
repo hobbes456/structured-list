@@ -7,14 +7,11 @@
     max-width: 400px;
     padding: 30px;
 
-    background-color: $main_1;
-    border-radius: 30px;
-
-    filter: drop-shadow(0 0 2px $main_2);
-
     @include v550 {
         max-width: 250px;
     }
+
+    @include main-background;
 
     &__buttons {
         display: flex;
