@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { IProduct } from "@/interfaces/IProduct";
 
-import { Product } from "@/constants/Product";
+import { Product } from "@classes/Product";
 
 export * as productsSelectors from "./selectors";
 

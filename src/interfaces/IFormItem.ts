@@ -1,8 +1,8 @@
 export interface IFormItem {
     title: string;
-    id: "article" | "title" | "author" | "year" | "description";
+    id: "article" | "title" | "author"| "coverPath" | "year" | "description";
     placeholder: string;
-    validations: {
+    validations?: {
         [index: string]:
             | { value: any; message: string }
             | ((value: string) => string | boolean);

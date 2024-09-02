@@ -13,6 +13,7 @@ export class Product implements IProduct {
     public title: string;
     public author: string;
     public year: string;
+    public coverPath: string;
     public description: string;
 
     constructor(state: IProduct[], product: IProduct) {
@@ -21,6 +22,7 @@ export class Product implements IProduct {
         this.title = product.title;
         this.author = product.author;
         this.year = product.year;
+        this.coverPath = product.coverPath;
         this.description = product.description;
     }
 }

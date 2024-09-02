@@ -5,5 +5,6 @@ export interface IProduct {
     title: string;
     author: string;
     year: string;
+    coverPath: string;
     description: string;
 }
