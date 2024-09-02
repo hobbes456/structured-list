@@ -8,6 +8,7 @@ const nextProductId = (products: IProduct[]): number => {
 
 export class Product implements IProduct {
     public id: number;
+    public isFavorite: boolean = false;
     public article: string;
     public title: string;
     public author: string;
