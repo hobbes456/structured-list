@@ -4,7 +4,6 @@ import { ICover } from "@/interfaces/ICover";
 
 export class Cover implements ICover {
     public src: Url;
-    public alt: string = "Book cover";
     public width: number = 179;
     public height: number = 281;
 

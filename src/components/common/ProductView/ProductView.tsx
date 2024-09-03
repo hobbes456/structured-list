@@ -6,6 +6,7 @@ import { IProduct } from "@/interfaces/IProduct";
 
 import { Cover } from "@classes/Cover";
 
+import { isValidUrl } from "@/constants/isValidUrl";
 import svgs from "@/constants/svgs";
 
 import s from "./ProductView.module.scss";
@@ -15,18 +16,18 @@ type ProductViewProps = {
 };
 
 const ProductView: React.FC<ProductViewProps> = ({ item }) => {
-    const isEmpty: boolean = item.coverPath.trim() === "";
+    const isValid = isValidUrl(item.coverPath);
 
-    const cover = isEmpty ? svgs.booksSvg : new Cover(item.coverPath);
+    const cover = isValid ? new Cover(item.coverPath) : svgs.booksSvg;
 
     return (
         <div className={s.productView}>
             <Image
                 className={clsx(s.productView__image, {
-                    [s.productView__image_border]: !isEmpty,
+                    [s.productView__image_border]: isValid,
                 })}
                 src={cover.src}
-                alt={cover.alt}
+                alt="Book cover"
                 width={cover.width}
                 height={cover.height}
             />
