@@ -2,7 +2,7 @@ import { useCallback } from "react";
 
 import { useAppDispatch } from "./useAppDispatch";
 
-import { Product } from "@/constants/Product";
+import { Product } from "@classes/Product";
 
 export const useAction = (action: Function) => {
     const dispatch = useAppDispatch();

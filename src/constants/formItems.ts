@@ -72,6 +72,11 @@ export const formItems: IFormItem[] = [
         },
     },
     {
+        title: "Book cover",
+        id: "coverPath",
+        placeholder: "Enter cover link",
+    },
+    {
         title: "Description of the book",
         id: "description",
         placeholder: "Enter a description",

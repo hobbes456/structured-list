@@ -1,10 +1,7 @@
 .productView {
     display: grid;
     grid-template-areas:
-        "image article"
-        "image title"
-        "image author"
-        "image year"
+        "image information"
         "description description";
     gap: 10px;
     width: 100%;
@@ -24,27 +21,35 @@
     }
 
     &__image {
+        $width: 179px;
+        $height: 281px;
+
         grid-area: image;
-        width: 30%;
-
         justify-self: center;
-        align-self: center;
+        width: $width;
+        height: $height;
+
+        &_border {
+            border: 2px solid $grey_2;
+            border-radius: 20px;
+
+            @include v550 {
+                border-width: 1px;
+                border-radius: 10px;
+            }
+        }
+
+        @include v550 {
+            width: $width/2;
+            height: $height/2;
+        }
     }
 
-    &__article {
-        grid-area: article;
-    }
-
-    &__title {
-        grid-area: title;
-    }
-
-    &__author {
-        grid-area: author;
-    }
-
-    &__year {
-        grid-area: year;
+    &__information {
+        grid-area: information;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
     }
 
     &__description {
