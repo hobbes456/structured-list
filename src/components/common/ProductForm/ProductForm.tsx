@@ -3,7 +3,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 
 import { useAction } from "@/hooks/useAction";
 
-import { addProduct } from "@/models/product";
+import { add, edit } from "@/models/product";
 
 import FormItem from "@components/FormItem";
 
@@ -15,21 +15,23 @@ import { formButtons } from "@/constants/formButtons";
 import s from "./ProductForm.module.scss";
 
 type ProductFormProps = {
+    item?: IProduct;
     onClose: () => void;
 };
 
-const ProductForm: React.FC<ProductFormProps> = ({ onClose }) => {
+const ProductForm: React.FC<ProductFormProps> = ({ item, onClose }) => {
     const {
         register,
         formState: { errors, isValid },
         handleSubmit,
         reset,
-    } = useForm<IProduct>({ mode: "onBlur" });
+    } = useForm<IProduct>({ mode: "onBlur", defaultValues: item });
 
-    const addNewProduct = useAction(addProduct);
+    const handleCreate = useAction(add);
+    const handleEdit = useAction(edit);
 
     const onSubmit: SubmitHandler<IProduct> = (data: IProduct) => {
-        addNewProduct(data);
+        item ? handleEdit(data) : handleCreate(data);
 
         reset();
 

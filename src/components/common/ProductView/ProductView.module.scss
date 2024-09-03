@@ -1,8 +1,11 @@
 .productView {
+    margin-bottom: 15px;
+
     display: grid;
     grid-template-areas:
         "image information"
-        "description description";
+        "description description"
+        "buttons buttons";
     gap: 10px;
     width: 100%;
     max-width: 500px;
@@ -26,6 +29,10 @@
 
         grid-area: image;
         justify-self: center;
+
+        display: grid;
+        justify-content: center;
+        align-items: center;
         width: $width;
         height: $height;
 
@@ -53,7 +60,32 @@
     }
 
     &__description {
+        margin-top: 20px;
+
         grid-area: description;
         text-align: justify;
+    }
+
+    &__buttons {
+        grid-area: buttons;
+        justify-self: end;
+    }
+
+    &__button {
+        margin-left: 10px;
+
+        @include form-button;
+
+        @include v550 {
+            margin-left: 5px;
+        }
+
+        &_edit {
+            @include hover-c-bg($main_2, $green_1, 300ms);
+        }
+
+        &_delete {
+            @include hover-c-bg($main_2, $form_button_color_2, 300ms);
+        }
     }
 }
