@@ -24,6 +24,16 @@
         filter: opacity(0.7);
     }
 
+    &_favorite {
+        border-image: linear-gradient(
+                to right,
+                $form_button_color_1,
+                $form_button_color_2
+            )
+            1;
+        border-width: 5px;
+    }
+
     &__information {
         margin-left: 10px;
         width: 100%;

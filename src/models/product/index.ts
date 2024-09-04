@@ -18,12 +18,29 @@ const productsSlice = createSlice({
     name: "products",
     initialState,
     reducers: {
-        addProduct(state, action: PayloadAction<IProduct>) {
+        add(state, action: PayloadAction<IProduct>) {
             state.entities.unshift(new Product(state.entities, action.payload));
+        },
+        remove(state, action: PayloadAction<IProduct>) {
+            state.entities = state.entities.filter(
+                (item) => item.id !== action.payload.id
+            );
+        },
+        edit(state, action: PayloadAction<IProduct>) {
+            state.entities = state.entities.map((item) =>
+                item.id !== action.payload.id ? item : { ...action.payload }
+            );
+        },
+        toggle(state, action: PayloadAction<IProduct>) {
+            state.entities = state.entities.map((item) =>
+                item.id === action.payload.id
+                    ? { ...item, isFavorite: !item.isFavorite }
+                    : item
+            );
         },
     },
 });
 
-export const { addProduct } = productsSlice.actions;
+export const { add, remove, edit, toggle } = productsSlice.actions;
 
 export default productsSlice.reducer;

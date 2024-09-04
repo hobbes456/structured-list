@@ -12,6 +12,16 @@ const nextConfig = {
         includePaths: [path.join(__dirname, "src")],
         prependData: `@use "src/styles/_helpers.scss" as *;`,
     },
+    images: {
+        remotePatterns: [
+            {
+                protocol: "https",
+                hostname: "**",
+                port: "",
+                pathname: "**",
+            },
+        ],
+    },
 };
 
 export default nextConfig;

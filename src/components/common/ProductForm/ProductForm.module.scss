@@ -20,13 +20,7 @@
     }
 
     &__button {
-        width: 100px;
-        padding: 10px;
-
-        text-align: center;
-
-        border: 2px solid $grey_3;
-        border-radius: 10px;
+        @include form-button;
 
         &[type="submit"] {
             @include hover-c-bg($main_2, $form_button_color_1, 300ms);
@@ -34,10 +28,6 @@
 
         &[type="reset"] {
             @include hover-c-bg($main_2, $form_button_color_2, 300ms);
-        }
-
-        &:active {
-            opacity: 0.5;
         }
     }
 }

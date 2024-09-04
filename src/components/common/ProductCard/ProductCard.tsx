@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
+import clsx from "clsx";
 
 import { IProduct } from "@/interfaces/IProduct";
 
@@ -23,7 +24,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
 
     return (
         <>
-            <li className={s.productCard} onClick={handleClick}>
+            <li
+                className={clsx(s.productCard, {
+                    [s.productCard_favorite]: item.isFavorite,
+                })}
+                onClick={handleClick}
+            >
                 <Image
                     src={booksSvg.src}
                     alt="Book image"
@@ -33,7 +39,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
                 <div className={s.productCard__information}>
                     <p className={s.productCard__title}>{item.title}</p>
                     <p className={s.productCard__author}>{item.author}</p>
-                    <p className={s.productCard__year}>{item.year} год</p>
+                    <p className={s.productCard__year}>{item.year} year</p>
                 </div>
             </li>
             {isShowModal && (

@@ -69,3 +69,17 @@
         border-radius: 20px;
     }
 }
+
+@mixin form-button {
+    width: 100px;
+    padding: 10px;
+
+    text-align: center;
+
+    border: 2px solid $grey_3;
+    border-radius: 10px;
+
+    &:active {
+        opacity: 0.5;
+    }
+}
