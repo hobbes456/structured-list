@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
+import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 import clsx from "clsx";
 
 import { useAction } from "@/hooks/useAction";
@@ -51,6 +52,7 @@ const ProductView: React.FC<ProductViewProps> = ({ item }) => {
                         alt="Book cover"
                         width={cover.width}
                         height={cover.height}
+                        unoptimized={true}
                     />
                     <div className={s.productView__information}>
                         <p>Article: {item.article}</p>
