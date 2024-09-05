@@ -25,6 +25,10 @@
 
     &_favorite {
         filter: drop-shadow(0 0 10px $main_2);
+
+        .productView__image_border {
+            border-color: $form_button_color_2;
+        }
     }
 
     &__image {
@@ -47,10 +51,6 @@
             @include v550 {
                 border-width: 1px;
                 border-radius: 10px;
-            }
-
-            &_favorite {
-                border-color: $form_button_color_2;
             }
         }
 

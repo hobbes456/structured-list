@@ -46,8 +46,6 @@ const ProductView: React.FC<ProductViewProps> = ({ item }) => {
                     <Image
                         className={clsx(s.productView__image, {
                             [s.productView__image_border]: isValid,
-                            [s.productView__image_border_favorite]:
-                                isValid && item.isFavorite,
                         })}
                         src={cover.src}
                         alt="Book cover"
