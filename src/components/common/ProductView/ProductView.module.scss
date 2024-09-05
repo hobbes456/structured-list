@@ -68,8 +68,14 @@
     }
 
     &__description {
+        margin-top: 20px;
+
         grid-area: description;
         text-align: justify;
+
+        @include v550 {
+            margin-top: 10px;
+        }
     }
 
     &__buttons {
