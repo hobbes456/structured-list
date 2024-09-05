@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 import clsx from "clsx";
 
 import { useAction } from "@/hooks/useAction";
