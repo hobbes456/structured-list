@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import clsx from "clsx";
 
@@ -58,6 +59,12 @@ const ProductView: React.FC<ProductViewProps> = ({ item }) => {
                         <p>Title: {item.title}</p>
                         <p>Author: {item.author}</p>
                         <p>Year of writing: {item.year}</p>
+                        <Link
+                            className={s.productView__link}
+                            href={`/books/${item.id}`}
+                        >
+                            Details...
+                        </Link>
                     </div>
                     <p className={s.productView__description}>
                         {item.description}

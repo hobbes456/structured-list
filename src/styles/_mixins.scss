@@ -96,3 +96,15 @@
         background-color: $grey_4;
     }
 }
+
+@mixin link-style {
+    transition: color 150ms ease-in-out;
+
+    &:hover {
+        color: $form_button_color_2;
+    }
+
+    &:active {
+        color: $grey_3;
+    }
+}
