@@ -4,8 +4,8 @@ import { UseFormRegister, FieldErrors, FieldValues } from "react-hook-form";
 import { IFormItem } from "@/interfaces/IFormItem";
 import { IProduct } from "@/interfaces/IProduct";
 
-import Input from "@components/Input";
-import Textarea from "@components/Textarea";
+import Input from "@components/FormInput";
+import Textarea from "@components/FormTextarea";
 
 import s from "./FormItem.module.scss";
 

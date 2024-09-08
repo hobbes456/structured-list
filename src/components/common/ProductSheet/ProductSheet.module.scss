@@ -1,10 +1,13 @@
 .productSheet {
     margin-top: 40px;
 
+    @include flex_column_center;
     width: 100%;
     padding: 10px;
 
     &__list {
+        margin-top: 40px;
+
         @include flex_column_center;
         width: 100%;
 

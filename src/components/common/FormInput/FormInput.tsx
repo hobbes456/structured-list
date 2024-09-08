@@ -2,7 +2,7 @@ import React from "react";
 
 import { IFormField } from "@/interfaces/IFormField";
 
-const Input: React.FC<IFormField> = ({ className, item, register }) => {
+const FormInput: React.FC<IFormField> = ({ className, item, register }) => {
     return (
         <input
             type="text"
@@ -15,4 +15,4 @@ const Input: React.FC<IFormField> = ({ className, item, register }) => {
     );
 };
 
-export default Input;
+export default FormInput;

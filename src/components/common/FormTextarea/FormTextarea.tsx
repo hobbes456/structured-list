@@ -2,7 +2,7 @@ import React from "react";
 
 import { IFormField } from "@/interfaces/IFormField";
 
-const Textarea: React.FC<IFormField> = ({ className, item, register }) => {
+const FormTextarea: React.FC<IFormField> = ({ className, item, register }) => {
     return (
         <textarea
             className={className}
@@ -14,4 +14,4 @@ const Textarea: React.FC<IFormField> = ({ className, item, register }) => {
     );
 };
 
-export default Textarea;
+export default FormTextarea;

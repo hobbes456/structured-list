@@ -8,7 +8,7 @@ export const useAction = (action: Function) => {
     const dispatch = useAppDispatch();
 
     return useCallback(
-        (arg?: Product) => dispatch(action(arg)),
+        (arg?: Product | string) => dispatch(action(arg)),
         [dispatch, action]
     );
 };

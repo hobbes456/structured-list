@@ -1,0 +1,36 @@
+.search {
+    @include flex_column_center;
+    width: 100%;
+    max-width: 350px;
+
+    @include p-normal-font;
+
+    @include v550 {
+        @include p-small-font;
+    }
+
+    &__options {
+        margin-top: 15px;
+
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+    }
+
+    &__option {
+        padding: 2px;
+
+        border-bottom: 2px solid transparent;
+
+        transition: color 100ms ease-in-out, border-color 100ms ease-in-out;
+
+        &:hover {
+            color: $grey_2;
+        }
+
+        &_active {
+            border-color: $form_button_color_2;
+        }
+    }
+}

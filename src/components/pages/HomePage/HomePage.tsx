@@ -46,7 +46,7 @@ const HomePage = () => {
                             <ProductForm onClose={handleClick} />
                         </ModalWindow>
                     )}
-                    {showProductSheet && <ProductSheet products={products}/>}
+                    {showProductSheet && <ProductSheet />}
                     <Information />
                 </div>
             )}

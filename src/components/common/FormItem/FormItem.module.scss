@@ -13,16 +13,7 @@
         width: 95%;
         padding: 10px;
 
-        background-color: $white;
-
-        border: 1px solid $grey_3;
-        border-radius: 10px;
-
-        transition: background-color 300ms ease-in-out;
-
-        &:hover {
-            background-color: $grey_4;
-        }
+        @include input-field;
     }
 
     &__warning {

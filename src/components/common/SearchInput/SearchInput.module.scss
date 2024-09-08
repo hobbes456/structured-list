@@ -1,0 +1,13 @@
+.searchInput {
+    display: flex;
+    justify-content: space-around;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+
+    &__field {
+        @include input-field;
+
+        padding: 5px;
+    }
+}
