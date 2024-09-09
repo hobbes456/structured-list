@@ -1,20 +1,15 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import clsx from "clsx";
 
 import { useAction } from "@/hooks/useAction";
 
 import { remove, toggle } from "@/models/product";
 
+import ProductImage from "@components/ProductImage";
 import ProductForm from "@components/ProductForm";
 
 import { IProduct } from "@/interfaces/IProduct";
-
-import { Cover } from "@classes/Cover";
-
-import { isValidUrl } from "@/constants/isValidUrl";
-import svgs from "@/constants/svgs";
 
 import s from "./ProductView.module.scss";
 
@@ -24,10 +19,6 @@ type ProductViewProps = {
 
 const ProductView: React.FC<ProductViewProps> = ({ item }) => {
     const [isShowForm, setIsShowForm] = useState<boolean>(false);
-
-    const isValid = isValidUrl(item.coverPath);
-
-    const cover = isValid ? new Cover(item.coverPath) : svgs.booksSvg;
 
     const handleDelete = useAction(remove);
     const handleToggle = useAction(toggle);
@@ -44,16 +35,7 @@ const ProductView: React.FC<ProductViewProps> = ({ item }) => {
                     })}
                     onDoubleClick={() => handleToggle(item)}
                 >
-                    <Image
-                        className={clsx(s.productView__image, {
-                            [s.productView__image_border]: isValid,
-                        })}
-                        src={cover.src}
-                        alt="Book cover"
-                        width={cover.width}
-                        height={cover.height}
-                        unoptimized={true}
-                    />
+                    <ProductImage item={item} />
                     <div className={s.productView__information}>
                         <p>Article: {item.article}</p>
                         <p>Title: {item.title}</p>

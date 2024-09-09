@@ -1,0 +1,29 @@
+.productImage {
+    $width: 180px;
+    $height: 280px;
+
+    grid-area: image;
+    justify-self: center;
+    align-self: center;
+    width: $width;
+    height: $height;
+
+    &_border {
+        border: 2px solid $grey_2;
+        border-radius: 20px;
+
+        @include v550 {
+            border-width: 1px;
+            border-radius: 10px;
+        }
+    }
+
+    &_favorite {
+        border-color: $form_button_color_2;
+    }
+
+    @include v550 {
+        width: $width/2;
+        height: $height/2;
+    }
+}

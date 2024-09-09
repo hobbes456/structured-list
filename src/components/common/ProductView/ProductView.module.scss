@@ -25,39 +25,6 @@
 
     &_favorite {
         filter: drop-shadow(0 0 10px $main_2);
-
-        .productView__image_border {
-            border-color: $form_button_color_2;
-        }
-    }
-
-    &__image {
-        $width: 179px;
-        $height: 281px;
-
-        grid-area: image;
-        justify-self: center;
-
-        display: grid;
-        justify-content: center;
-        align-items: center;
-        width: $width;
-        height: $height;
-
-        &_border {
-            border: 2px solid $grey_2;
-            border-radius: 20px;
-
-            @include v550 {
-                border-width: 1px;
-                border-radius: 10px;
-            }
-        }
-
-        @include v550 {
-            width: $width/2;
-            height: $height/2;
-        }
     }
 
     &__information {

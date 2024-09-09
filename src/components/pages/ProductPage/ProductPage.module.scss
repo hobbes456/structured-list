@@ -1,0 +1,50 @@
+.productPage {
+    margin: 50px 5px;
+
+    display: flex;
+    justify-content: center;
+
+    &__content {
+        display: grid;
+        grid-template-areas:
+            "image information"
+            "description description";
+        width: 100%;
+        max-width: 600px;
+        padding: 15px;
+
+        @include p-big-font;
+
+        background-color: $white;
+        border: 2px solid $black;
+        border-radius: 25px;
+
+        @include v550 {
+            padding: 10px;
+
+            @include p-normal-font;
+
+            border-radius: 10px;
+        }
+    }
+
+    &__information {
+        grid-area: information;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    &__link {
+        @include link-style;
+    }
+
+    &__description {
+        margin-top: 25px;
+
+        grid-area: description;
+
+        text-align: justify;
+    }
+}

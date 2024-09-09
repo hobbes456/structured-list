@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 
 import { useAppSelector } from "@/hooks/useAppSelector";
 
-import product, { productsSelectors } from "@/models/product";
+import { productsSelectors } from "@/models/product";
 
 import ProductPage from "@pages/ProductPage";
 import Layout from "@components/Layout";
