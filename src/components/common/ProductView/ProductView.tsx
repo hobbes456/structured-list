@@ -4,7 +4,7 @@ import clsx from "clsx";
 
 import { useAction } from "@/hooks/useAction";
 
-import { remove, toggle } from "@/models/product";
+import { getDeleteProduct, getToggleProduct } from "@/models/product";
 
 import ProductImage from "@components/ProductImage";
 import ProductForm from "@components/ProductForm";
@@ -20,8 +20,8 @@ type ProductViewProps = {
 const ProductView: React.FC<ProductViewProps> = ({ item }) => {
     const [isShowForm, setIsShowForm] = useState<boolean>(false);
 
-    const handleDelete = useAction(remove);
-    const handleToggle = useAction(toggle);
+    const handleDelete = useAction(getDeleteProduct);
+    const handleToggle = useAction(getToggleProduct);
     const handleClick = () => setIsShowForm(!isShowForm);
 
     return (

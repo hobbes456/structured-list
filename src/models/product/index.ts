@@ -8,30 +8,50 @@ export * as productsSelectors from "./selectors";
 
 interface InitialStateProductsProps {
     entities: IProduct[];
+    isLoading: boolean;
+    isError: string | null;
 }
 
 const initialState: InitialStateProductsProps = {
     entities: [],
+    isLoading: false,
+    isError: null,
 };
 
 const productsSlice = createSlice({
     name: "products",
     initialState,
     reducers: {
-        add(state, action: PayloadAction<IProduct>) {
-            state.entities.unshift(new Product(state.entities, action.payload));
+        fetchProductsRequest(state) {
+            state.isLoading = true;
+            state.isError = null;
         },
-        remove(state, action: PayloadAction<IProduct>) {
+        fetchProductsSuccess(state, action: PayloadAction<IProduct[]>) {
+            state.entities = action.payload;
+            state.isLoading = false;
+        },
+        fetchProductsFailure(state, action: PayloadAction<string>) {
+            state.isLoading = false;
+            state.isError = action.payload;
+        },
+        getCreateProduct() {},
+        setCreateProduct(state, action: PayloadAction<IProduct>) {
+            state.entities.push(new Product(action.payload));
+        },
+        getDeleteProduct() {},
+        setDeleteProduct(state, action: PayloadAction<IProduct>) {
             state.entities = state.entities.filter(
                 (item) => item.id !== action.payload.id
             );
         },
-        edit(state, action: PayloadAction<IProduct>) {
+        getUpdateProduct() {},
+        setUpdateProduct(state, action: PayloadAction<IProduct>) {
             state.entities = state.entities.map((item) =>
                 item.id !== action.payload.id ? item : { ...action.payload }
             );
         },
-        toggle(state, action: PayloadAction<IProduct>) {
+        getToggleProduct() {},
+        setToggleProduct(state, action: PayloadAction<IProduct>) {
             state.entities = state.entities.map((item) =>
                 item.id === action.payload.id
                     ? { ...item, isFavorite: !item.isFavorite }
@@ -41,6 +61,18 @@ const productsSlice = createSlice({
     },
 });
 
-export const { add, remove, edit, toggle } = productsSlice.actions;
+export const {
+    fetchProductsRequest,
+    fetchProductsSuccess,
+    fetchProductsFailure,
+    getCreateProduct,
+    setCreateProduct,
+    getDeleteProduct,
+    setDeleteProduct,
+    getUpdateProduct,
+    setUpdateProduct,
+    getToggleProduct,
+    setToggleProduct,
+} = productsSlice.actions;
 
 export default productsSlice.reducer;
