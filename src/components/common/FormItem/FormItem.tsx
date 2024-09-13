@@ -4,8 +4,8 @@ import { UseFormRegister, FieldErrors, FieldValues } from "react-hook-form";
 import { IFormItem } from "@/interfaces/IFormItem";
 import { IProduct } from "@/interfaces/IProduct";
 
-import Input from "@components/FormInput";
-import Textarea from "@components/FormTextarea";
+import FormInput from "@components/FormInput";
+import FormTextarea from "@components/FormTextarea";
 
 import s from "./FormItem.module.scss";
 
@@ -20,13 +20,13 @@ const FormItem: React.FC<FormItemProps> = ({ item, register, errors }) => {
         <div className={s.formItem}>
             <label htmlFor={item.id}>{item.title}</label>
             {item.isTextarea ? (
-                <Textarea
+                <FormTextarea
                     className={s.formItem__field}
                     item={item}
                     register={register}
                 />
             ) : (
-                <Input
+                <FormInput
                     className={s.formItem__field}
                     item={item}
                     register={register}
