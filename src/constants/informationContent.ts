@@ -9,10 +9,6 @@ interface InformationContentProps {
 
 export const informationContent: InformationContentProps[] = [
     {
-        id: 1,
-        text: "Double click to add to favorites",
-    },
-    {
         id: 2,
         text: "Create by",
         linkText: "Ostap Bender",

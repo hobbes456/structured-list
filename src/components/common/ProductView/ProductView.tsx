@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import clsx from "clsx";
 
 import { useAction } from "@/hooks/useAction";
@@ -11,6 +12,8 @@ import ProductForm from "@components/ProductForm";
 
 import { IProduct } from "@/interfaces/IProduct";
 
+import svgs from "@/constants/svgs";
+
 import s from "./ProductView.module.scss";
 
 type ProductViewProps = {
@@ -19,10 +22,13 @@ type ProductViewProps = {
 
 const ProductView: React.FC<ProductViewProps> = ({ item }) => {
     const [isShowForm, setIsShowForm] = useState<boolean>(false);
+    const { emptyBookmark, fillBookmark } = svgs;
 
     const handleDelete = useAction(getDeleteProduct);
     const handleToggle = useAction(getToggleProduct);
     const handleClick = () => setIsShowForm(!isShowForm);
+
+    const currentBookmark = item.isFavorite ? fillBookmark : emptyBookmark;
 
     return (
         <>
@@ -33,7 +39,6 @@ const ProductView: React.FC<ProductViewProps> = ({ item }) => {
                     className={clsx(s.productView, {
                         [s.productView_favorite]: item.isFavorite,
                     })}
-                    onDoubleClick={() => handleToggle(item)}
                 >
                     <ProductImage item={item} />
                     <div className={s.productView__information}>
@@ -71,6 +76,14 @@ const ProductView: React.FC<ProductViewProps> = ({ item }) => {
                             Delete
                         </button>
                     </div>
+                    <Image
+                        className={s.productView__bookmark}
+                        src={currentBookmark.src}
+                        alt="heart image"
+                        width={40}
+                        height={40}
+                        onClick={() => handleToggle(item)}
+                    />
                 </div>
             )}
         </>
