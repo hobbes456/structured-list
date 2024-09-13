@@ -98,10 +98,12 @@
 }
 
 @mixin link-style {
+    color: $form_button_color_2;
+
     transition: color 0.15s ease-in-out;
 
     &:hover {
-        color: $form_button_color_2;
+        color: $red_1;
     }
 
     &:active {
