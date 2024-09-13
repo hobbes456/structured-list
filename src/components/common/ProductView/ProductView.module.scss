@@ -64,11 +64,11 @@
         }
 
         &_edit {
-            @include hover-c-bg($main_2, $green_1, 300ms);
+            @include hover-c-bg($main_2, $green_1, 0.3s);
         }
 
         &_delete {
-            @include hover-c-bg($main_2, $form_button_color_2, 300ms);
+            @include hover-c-bg($main_2, $form_button_color_2, 0.3s);
         }
     }
 }

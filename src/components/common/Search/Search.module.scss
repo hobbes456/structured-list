@@ -23,7 +23,7 @@
 
         border-bottom: 2px solid transparent;
 
-        transition: color 100ms ease-in-out, border-color 100ms ease-in-out;
+        transition: color 0.1s ease-in-out, border-color 0.1s ease-in-out;
 
         &:hover {
             color: $grey_2;

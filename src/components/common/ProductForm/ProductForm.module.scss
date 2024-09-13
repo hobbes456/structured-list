@@ -23,11 +23,11 @@
         @include form-button;
 
         &[type="submit"] {
-            @include hover-c-bg($main_2, $form_button_color_1, 300ms);
+            @include hover-c-bg($main_2, $form_button_color_1, 0.3s);
         }
 
         &[type="reset"] {
-            @include hover-c-bg($main_2, $form_button_color_2, 300ms);
+            @include hover-c-bg($main_2, $form_button_color_2, 0.3s);
         }
     }
 }
