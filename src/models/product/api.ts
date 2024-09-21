@@ -19,8 +19,8 @@ export const createProduct = async (
 };
 
 export const deleteProduct = async (data: IProduct): Promise<IProduct> => {
-    const responce = await axios.delete(`/books/${data.id}`);
-    return responce.data;
+    const response = await axios.delete(`/books/${data.id}`);
+    return response.data;
 };
 
 export const updateProduct = async (data: IProduct): Promise<IProduct> => {

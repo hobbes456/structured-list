@@ -36,8 +36,8 @@ function* fetchProductsAsync() {
 
 function* createProductAsync(action: PayloadAction<IProduct>) {
     try {
-        const responce: IProduct = yield call(createProduct, action.payload);
-        yield put(setCreateProduct(responce));
+        const response: IProduct = yield call(createProduct, action.payload);
+        yield put(setCreateProduct(response));
     } catch (error: any) {
         yield put(fetchProductsFailure(error.message));
     }
@@ -45,8 +45,8 @@ function* createProductAsync(action: PayloadAction<IProduct>) {
 
 function* deleteProductAsync(action: PayloadAction<IProduct>) {
     try {
-        const responce: IProduct = yield call(deleteProduct, action.payload);
-        yield put(setDeleteProduct(responce));
+        const response: IProduct = yield call(deleteProduct, action.payload);
+        yield put(setDeleteProduct(response));
     } catch (error: any) {
         yield put(fetchProductsFailure(error.message));
     }
@@ -54,8 +54,8 @@ function* deleteProductAsync(action: PayloadAction<IProduct>) {
 
 function* updateProductAsync(action: PayloadAction<IProduct>) {
     try {
-        const responce: IProduct = yield call(updateProduct, action.payload);
-        yield put(setUpdateProduct(responce));
+        const response: IProduct = yield call(updateProduct, action.payload);
+        yield put(setUpdateProduct(response));
     } catch (error: any) {
         yield put(fetchProductsFailure(error.message));
     }
@@ -63,8 +63,8 @@ function* updateProductAsync(action: PayloadAction<IProduct>) {
 
 function* toggleProductAsync(action: PayloadAction<IProduct>) {
     try {
-        const responce: IProduct = yield call(toggleProduct, action.payload);
-        yield put(setToggleProduct(responce));
+        const response: IProduct = yield call(toggleProduct, action.payload);
+        yield put(setToggleProduct(response));
     } catch (error: any) {
         yield put(fetchProductsFailure(error.message));
     }
