@@ -25,7 +25,7 @@ import {
 
 import { IProduct } from "@/interfaces/IProduct";
 
-function* fetchProductsAsync() {
+function* fetchProductsSaga() {
     try {
         const products: IProduct[] = yield call(getProducts);
         yield put(fetchProductsSuccess(products));
@@ -34,7 +34,7 @@ function* fetchProductsAsync() {
     }
 }
 
-function* createProductAsync(action: PayloadAction<IProduct>) {
+function* createProductSaga(action: PayloadAction<IProduct>) {
     try {
         const response: IProduct = yield call(createProduct, action.payload);
         yield put(setCreateProduct(response));
@@ -43,7 +43,7 @@ function* createProductAsync(action: PayloadAction<IProduct>) {
     }
 }
 
-function* deleteProductAsync(action: PayloadAction<IProduct>) {
+function* deleteProductSaga(action: PayloadAction<IProduct>) {
     try {
         const response: IProduct = yield call(deleteProduct, action.payload);
         yield put(setDeleteProduct(response));
@@ -52,7 +52,7 @@ function* deleteProductAsync(action: PayloadAction<IProduct>) {
     }
 }
 
-function* updateProductAsync(action: PayloadAction<IProduct>) {
+function* updateProductSaga(action: PayloadAction<IProduct>) {
     try {
         const response: IProduct = yield call(updateProduct, action.payload);
         yield put(setUpdateProduct(response));
@@ -61,7 +61,7 @@ function* updateProductAsync(action: PayloadAction<IProduct>) {
     }
 }
 
-function* toggleProductAsync(action: PayloadAction<IProduct>) {
+function* toggleProductSaga(action: PayloadAction<IProduct>) {
     try {
         const response: IProduct = yield call(toggleProduct, action.payload);
         yield put(setToggleProduct(response));
@@ -71,9 +71,9 @@ function* toggleProductAsync(action: PayloadAction<IProduct>) {
 }
 
 export function* watchProductSagas() {
-    yield takeEvery(fetchProductsRequest.type, fetchProductsAsync);
-    yield takeEvery(getCreateProduct.type, createProductAsync);
-    yield takeEvery(getDeleteProduct.type, deleteProductAsync);
-    yield takeEvery(getUpdateProduct.type, updateProductAsync);
-    yield takeEvery(getToggleProduct.type, toggleProductAsync);
+    yield takeEvery(fetchProductsRequest.type, fetchProductsSaga);
+    yield takeEvery(getCreateProduct.type, createProductSaga);
+    yield takeEvery(getDeleteProduct.type, deleteProductSaga);
+    yield takeEvery(getUpdateProduct.type, updateProductSaga);
+    yield takeEvery(getToggleProduct.type, toggleProductSaga);
 }
