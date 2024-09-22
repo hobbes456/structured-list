@@ -6,7 +6,6 @@ import { useAppSelector } from "@/hooks/useAppSelector";
 import { fetchProductsRequest, productsSelectors } from "@/models/product";
 
 import AppLoader from "@components/AppLoader";
-import Error from "@components/Error";
 
 type LayoutProps = {
     children: React.ReactNode;
@@ -25,8 +24,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     useEffect(() => {
         fetchProductsAsync();
     }, []);
-
-    if (isError) return <Error errorType={"Network Error"} />;
 
     return isLoading ? <AppLoader /> : children;
 };
