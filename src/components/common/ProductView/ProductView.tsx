@@ -5,7 +5,7 @@ import clsx from "clsx";
 
 import { useAction } from "@/hooks/useAction";
 
-import { getDeleteProduct, getToggleProduct } from "@/models/product";
+import { getDeleteProduct, getUpdateProduct } from "@/models/product";
 
 import ProductImage from "@components/ProductImage";
 import ProductForm from "@components/ProductForm";
@@ -25,8 +25,10 @@ const ProductView: React.FC<ProductViewProps> = ({ item }) => {
     const { emptyBookmark, fillBookmark } = svgs;
 
     const handleDelete = useAction(getDeleteProduct);
-    const handleToggle = useAction(getToggleProduct);
+    const handleUpdate = useAction(getUpdateProduct);
     const handleClick = () => setIsShowForm(!isShowForm);
+    const handleToggle = (item: IProduct) =>
+        handleUpdate({ ...item, isFavorite: !item.isFavorite });
 
     const currentBookmark = item.isFavorite ? fillBookmark : emptyBookmark;
 

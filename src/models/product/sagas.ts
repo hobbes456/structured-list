@@ -6,7 +6,6 @@ import {
     createProduct,
     deleteProduct,
     updateProduct,
-    toggleProduct,
 } from "./api";
 
 import {
@@ -19,8 +18,6 @@ import {
     setDeleteProduct,
     getUpdateProduct,
     setUpdateProduct,
-    getToggleProduct,
-    setToggleProduct,
 } from "@/models/product";
 
 import { IProduct } from "@/interfaces/IProduct";
@@ -61,19 +58,9 @@ function* updateProductSaga(action: PayloadAction<IProduct>) {
     }
 }
 
-function* toggleProductSaga(action: PayloadAction<IProduct>) {
-    try {
-        const response: IProduct = yield call(toggleProduct, action.payload);
-        yield put(setToggleProduct(response));
-    } catch (error: any) {
-        yield put(fetchProductsFailure(error.message));
-    }
-}
-
 export function* watchProductSagas() {
     yield takeEvery(fetchProductsRequest.type, fetchProductsSaga);
     yield takeEvery(getCreateProduct.type, createProductSaga);
     yield takeEvery(getDeleteProduct.type, deleteProductSaga);
     yield takeEvery(getUpdateProduct.type, updateProductSaga);
-    yield takeEvery(getToggleProduct.type, toggleProductSaga);
 }

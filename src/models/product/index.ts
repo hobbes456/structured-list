@@ -50,14 +50,6 @@ const productsSlice = createSlice({
                 item.id !== action.payload.id ? item : { ...action.payload }
             );
         },
-        getToggleProduct() {},
-        setToggleProduct(state, action: PayloadAction<IProduct>) {
-            state.entities = state.entities.map((item) =>
-                item.id === action.payload.id
-                    ? { ...item, isFavorite: !item.isFavorite }
-                    : item
-            );
-        },
     },
 });
 
@@ -71,8 +63,6 @@ export const {
     setDeleteProduct,
     getUpdateProduct,
     setUpdateProduct,
-    getToggleProduct,
-    setToggleProduct,
 } = productsSlice.actions;
 
 export default productsSlice.reducer;

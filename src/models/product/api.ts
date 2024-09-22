@@ -27,11 +27,3 @@ export const updateProduct = async (data: IProduct): Promise<IProduct> => {
     const response = await axios.put<IProduct>(`/books/${data.id}`, data);
     return response.data;
 };
-
-export const toggleProduct = async (data: IProduct): Promise<IProduct> => {
-    const response = await axios.put<IProduct>(`/books/${data.id}`, {
-        ...data,
-        isFavorite: !data.isFavorite,
-    });
-    return response.data;
-};
