@@ -1,6 +1,9 @@
 import { IProduct } from "@/interfaces/IProduct";
 
-export const productsUpDate = (value: string, items: IProduct[]) => {
+export const productsUpdate = (
+    value: string,
+    items: IProduct[]
+): IProduct[] => {
     if (value.trim().length === 0) return items;
 
     return items.filter((item) =>

@@ -13,7 +13,7 @@ const Product = () => {
     const products = useAppSelector(productsSelectors.entities);
 
     const item = products.find(
-        (product) => product.id.toString() === router.query.id
+        (product) => product.id.toString() === router.query.slug
     );
 
     return (

@@ -9,6 +9,8 @@ import { IProduct } from "@/interfaces/IProduct";
 import { filterOptions } from "@/constants/filterOptions";
 
 export const entities = (state: RootState) => state.products.entities;
+export const isLoading = (state: RootState) => state.products.isLoading;
+export const isError = (state: RootState) => state.products.isError;
 
 export const selectedFilteredProducts = createSelector(
     (state) => entities(state),

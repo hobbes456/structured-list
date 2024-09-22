@@ -50,8 +50,8 @@
     align-items: center;
 }
 
-@mixin hover-c-bg($color, $bg-color, $ms) {
-    transition: color $ms ease-in-out, background-color $ms ease-in-out;
+@mixin hover-c-bg($color, $bg-color, $s) {
+    transition: color $s ease-in-out, background-color $s ease-in-out;
 
     &:hover {
         color: $color;
@@ -90,7 +90,7 @@
     border: 1px solid $grey_3;
     border-radius: 10px;
 
-    transition: background-color 300ms ease-in-out;
+    transition: background-color 0.3s ease-in-out;
 
     &:hover {
         background-color: $grey_4;
@@ -98,10 +98,12 @@
 }
 
 @mixin link-style {
-    transition: color 150ms ease-in-out;
+    color: $form_button_color_2;
+
+    transition: color 0.15s ease-in-out;
 
     &:hover {
-        color: $form_button_color_2;
+        color: $red_1;
     }
 
     &:active {

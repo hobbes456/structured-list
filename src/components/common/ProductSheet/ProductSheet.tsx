@@ -9,7 +9,7 @@ import { IProduct } from "@/interfaces/IProduct";
 import Search from "@components/Search";
 import ProductCard from "@components/ProductCard";
 
-import { productsUpDate } from "@/constants/productsUpDate";
+import { productsUpdate } from "@/constants/productsUpDate";
 
 import s from "./ProductSheet.module.scss";
 
@@ -24,7 +24,7 @@ const ProductSheet = () => {
     );
 
     const products = useMemo(
-        () => productsUpDate(searchValue, selectedProducts),
+        () => productsUpdate(searchValue, selectedProducts),
         [searchValue, selectedProducts]
     );
 

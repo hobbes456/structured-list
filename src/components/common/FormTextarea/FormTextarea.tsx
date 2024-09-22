@@ -10,7 +10,7 @@ const FormTextarea: React.FC<IFormField> = ({ className, item, register }) => {
             name={item.id}
             id={item.id}
             placeholder={item.placeholder}
-        ></textarea>
+        />
     );
 };
 

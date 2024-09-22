@@ -64,11 +64,33 @@
         }
 
         &_edit {
-            @include hover-c-bg($main_2, $green_1, 300ms);
+            @include hover-c-bg($main_2, $green_1, 0.3s);
         }
 
         &_delete {
-            @include hover-c-bg($main_2, $form_button_color_2, 300ms);
+            @include hover-c-bg($main_2, $form_button_color_2, 0.3s);
+        }
+    }
+
+    &__bookmark {
+        $normal-size: 40px;
+        $small-size: 20px;
+
+        position: absolute;
+        top: 15px;
+        right: 20px;
+
+        width: $normal-size;
+        height: $normal-size;
+
+        cursor: pointer;
+
+        @include v550 {
+            top: 10px;
+            right: 10px;
+
+            width: $small-size;
+            height: $small-size;
         }
     }
 }

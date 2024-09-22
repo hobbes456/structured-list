@@ -1,4 +1,4 @@
-.error404 {
+.error {
     margin-top: 20%;
 
     @include flex_column_center;
@@ -8,7 +8,7 @@
 
         color: $red_1;
 
-        transition: color 150ms ease-in-out;
+        transition: color 0.15s ease-in-out;
 
         &:hover {
             color: $form_button_color_2;

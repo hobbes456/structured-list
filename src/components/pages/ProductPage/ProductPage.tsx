@@ -4,7 +4,7 @@ import Link from "next/link";
 import { IProduct } from "@/interfaces/IProduct";
 
 import ProductImage from "@components/ProductImage";
-import Error404 from "@components/Error404";
+import Error from "@components/Error";
 
 import s from "./ProductPage.module.scss";
 
@@ -36,7 +36,7 @@ const ProductPage: React.FC<ProductPageProps> = ({ item }) => {
         );
     }
 
-    return <Error404 />;
+    return <Error errorType="Error404" />;
 };
 
 export default ProductPage;
