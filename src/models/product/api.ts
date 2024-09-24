@@ -19,19 +19,11 @@ export const createProduct = async (
 };
 
 export const deleteProduct = async (data: IProduct): Promise<IProduct> => {
-    const responce = await axios.delete(`/books/${data.id}`);
-    return responce.data;
+    const response = await axios.delete(`/books/${data.id}`);
+    return response.data;
 };
 
 export const updateProduct = async (data: IProduct): Promise<IProduct> => {
     const response = await axios.put<IProduct>(`/books/${data.id}`, data);
-    return response.data;
-};
-
-export const toggleProduct = async (data: IProduct): Promise<IProduct> => {
-    const response = await axios.put<IProduct>(`/books/${data.id}`, {
-        ...data,
-        isFavorite: !data.isFavorite,
-    });
     return response.data;
 };

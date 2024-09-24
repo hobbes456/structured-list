@@ -6,7 +6,6 @@ import {
     createProduct,
     deleteProduct,
     updateProduct,
-    toggleProduct,
 } from "./api";
 
 import {
@@ -19,13 +18,11 @@ import {
     setDeleteProduct,
     getUpdateProduct,
     setUpdateProduct,
-    getToggleProduct,
-    setToggleProduct,
 } from "@/models/product";
 
 import { IProduct } from "@/interfaces/IProduct";
 
-function* fetchProductsAsync() {
+function* fetchProductsSaga() {
     try {
         const products: IProduct[] = yield call(getProducts);
         yield put(fetchProductsSuccess(products));
@@ -34,46 +31,36 @@ function* fetchProductsAsync() {
     }
 }
 
-function* createProductAsync(action: PayloadAction<IProduct>) {
+function* createProductSaga(action: PayloadAction<IProduct>) {
     try {
-        const responce: IProduct = yield call(createProduct, action.payload);
-        yield put(setCreateProduct(responce));
+        const response: IProduct = yield call(createProduct, action.payload);
+        yield put(setCreateProduct(response));
     } catch (error: any) {
         yield put(fetchProductsFailure(error.message));
     }
 }
 
-function* deleteProductAsync(action: PayloadAction<IProduct>) {
+function* deleteProductSaga(action: PayloadAction<IProduct>) {
     try {
-        const responce: IProduct = yield call(deleteProduct, action.payload);
-        yield put(setDeleteProduct(responce));
+        const response: IProduct = yield call(deleteProduct, action.payload);
+        yield put(setDeleteProduct(response));
     } catch (error: any) {
         yield put(fetchProductsFailure(error.message));
     }
 }
 
-function* updateProductAsync(action: PayloadAction<IProduct>) {
+function* updateProductSaga(action: PayloadAction<IProduct>) {
     try {
-        const responce: IProduct = yield call(updateProduct, action.payload);
-        yield put(setUpdateProduct(responce));
-    } catch (error: any) {
-        yield put(fetchProductsFailure(error.message));
-    }
-}
-
-function* toggleProductAsync(action: PayloadAction<IProduct>) {
-    try {
-        const responce: IProduct = yield call(toggleProduct, action.payload);
-        yield put(setToggleProduct(responce));
+        const response: IProduct = yield call(updateProduct, action.payload);
+        yield put(setUpdateProduct(response));
     } catch (error: any) {
         yield put(fetchProductsFailure(error.message));
     }
 }
 
 export function* watchProductSagas() {
-    yield takeEvery(fetchProductsRequest.type, fetchProductsAsync);
-    yield takeEvery(getCreateProduct.type, createProductAsync);
-    yield takeEvery(getDeleteProduct.type, deleteProductAsync);
-    yield takeEvery(getUpdateProduct.type, updateProductAsync);
-    yield takeEvery(getToggleProduct.type, toggleProductAsync);
+    yield takeEvery(fetchProductsRequest.type, fetchProductsSaga);
+    yield takeEvery(getCreateProduct.type, createProductSaga);
+    yield takeEvery(getDeleteProduct.type, deleteProductSaga);
+    yield takeEvery(getUpdateProduct.type, updateProductSaga);
 }
