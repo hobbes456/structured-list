@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import Error from "next/error";
 
 import { useAppSelector } from "@/hooks/useAppSelector";
 
@@ -18,7 +19,7 @@ const Product = () => {
 
     return (
         <Layout>
-            <ProductPage item={item} />
+            {item ? <ProductPage item={item} /> : <Error statusCode={404} />}
         </Layout>
     );
 };
